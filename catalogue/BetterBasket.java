@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
- * Write a description of class BetterBasket here.
+ * The BetterBasket class contains all the improved and tested code for the system.
  * 
  * @author  Your Name 
  * @version 1.0
@@ -15,7 +15,6 @@ public class BetterBasket extends Basket implements Serializable, Comparator<Pro
   private static final long serialVersionUID = 1L;
   
 
-  // You need to add code here
   
   @Override
   public boolean add(Product p1) {
@@ -36,5 +35,13 @@ public class BetterBasket extends Basket implements Serializable, Comparator<Pro
   
   public int compare(Product p1, Product p2) {
 	  return p1.getProductNum().compareTo(p2.getProductNum());
+	    
+  }
+  
+  
+  
+  public void sortProductsByPrice() {
+	  Comparator<Product> priceComparator = Comparator.comparingDouble(Product::getPrice);
+      Collections.sort(this, priceComparator);
   }
 }
