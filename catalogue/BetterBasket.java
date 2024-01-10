@@ -18,7 +18,7 @@ public class BetterBasket extends Basket implements Serializable, Comparator<Pro
         // Search existing products for matching record
         for (Product p2 : this) {
             if (p1.getProductNum().equals(p2.getProductNum())) {
-                // Found - update quantity and return
+                
                 p2.setQuantity(p2.getQuantity() + p1.getQuantity());
                 return true;
             }

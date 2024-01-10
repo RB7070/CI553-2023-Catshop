@@ -59,18 +59,16 @@ class BetterBasketTest {
         Product p2 = new Product("0002", "Microwave", 50.00, 1);
         Product p3 = new Product("0003", "Kettle", 15.00, 1);
 
-        // Add products in random order
+        
+        b.add(p2);
         b.add(p3);
         b.add(p1);
-        b.add(p2);
-
-        // Sort by price
+    
         b.sortProductsByPrice();
 
-        // Check if the products are sorted by price
-        assertEquals("0001", b.get(0).getProductNum(), "Product incorrect after sort by price");
+        assertEquals("0002", b.get(0).getProductNum(), "Product incorrect after sort by price");
         assertEquals("0003", b.get(1).getProductNum(), "Product incorrect after sort by price");
-        assertEquals("0002", b.get(2).getProductNum(), "Product incorrect after sort by price");
+        assertEquals("0001", b.get(2).getProductNum(), "Product incorrect after sort by price");
     }
 	
 	

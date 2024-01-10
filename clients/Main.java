@@ -20,6 +20,7 @@ import clients.warehousePick.PickModel;
 import clients.warehousePick.PickView;
 import middle.LocalMiddleFactory;
 import middle.MiddleFactory;
+import java.awt.Color;
 
 import javax.swing.*;
 import java.awt.*;
@@ -65,6 +66,15 @@ class Main
     startCollectionGUI_MVC( mlf );
   }
   
+  // New method created to set background color for ease of access
+  public void backgroundColour(JFrame window, Color backgroundColor ) {
+	  Container contentPane = window.getContentPane();
+      contentPane.setBackground(backgroundColor);
+  }
+  
+
+  
+  
   public void startCustomerGUI_MVC(MiddleFactory mlf )
   {
     JFrame  window = new JFrame();
@@ -75,6 +85,12 @@ class Main
     CustomerModel model      = new CustomerModel(mlf);
     CustomerView view        = new CustomerView( window, mlf, pos.width, pos.height );
     CustomerController cont  = new CustomerController( model, view );
+    
+    //Customisation implemented
+    backgroundColour(window, Color.cyan);
+    
+
+    
     view.setController( cont );
 
     model.addObserver( view );       // Add observer to the model
@@ -96,6 +112,9 @@ class Main
     CashierView view        = new CashierView( window, mlf, pos.width, pos.height );
     CashierController cont  = new CashierController( model, view );
     view.setController( cont );
+    
+    backgroundColour(window, Color.cyan);
+
 
     model.addObserver( view );       // Add observer to the model
     window.setVisible(true);         // Make window visible
@@ -114,6 +133,9 @@ class Main
     BackDoorView view        = new BackDoorView( window, mlf, pos.width, pos.height );
     BackDoorController cont  = new BackDoorController( model, view );
     view.setController( cont );
+    
+    backgroundColour(window, Color.cyan);
+
 
     model.addObserver( view );       // Add observer to the model
     window.setVisible(true);         // Make window visible
@@ -132,6 +154,9 @@ class Main
     PickView view        = new PickView( window, mlf, pos.width, pos.height );
     PickController cont  = new PickController( model, view );
     view.setController( cont );
+    
+    backgroundColour(window, Color.cyan);
+
 
     model.addObserver( view );       // Add observer to the model
     window.setVisible(true);         // Make window visible
@@ -149,7 +174,10 @@ class Main
     DisplayView view        = new DisplayView( window, mlf, pos.width, pos.height );
     DisplayController cont  = new DisplayController( model, view );
     view.setController( cont );
+    
+    backgroundColour(window, Color.cyan);
 
+    
     model.addObserver( view );       // Add observer to the model
     window.setVisible(true);         // Make window visible
   }
@@ -167,6 +195,9 @@ class Main
     CollectView view        = new CollectView( window, mlf, pos.width, pos.height );
     CollectController cont  = new CollectController( model, view );
     view.setController( cont );
+    
+    backgroundColour(window, Color.cyan);
+
 
     model.addObserver( view );       // Add observer to the model
     window.setVisible(true);         // Make window visible
