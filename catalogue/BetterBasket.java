@@ -36,9 +36,8 @@ public class BetterBasket extends Basket implements Serializable, Comparator<Pro
     public boolean removeProduct(String productNum) {
         Product productToRemove = null;
 
-        // Find the specified product (case-insensitive comparison)
         for (Product product : this) {
-            if (product.getProductNum().equalsIgnoreCase(productNum)) {
+            if (product.getProductNum().equals(productNum)) {
                 productToRemove = product;
                 break;
             }
@@ -50,8 +49,6 @@ public class BetterBasket extends Basket implements Serializable, Comparator<Pro
 
         return false; // Product not found
     }
-    
-    
     
     
 
