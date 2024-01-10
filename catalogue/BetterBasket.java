@@ -7,12 +7,14 @@ import java.util.Comparator;
 /**
  * The BetterBasket class contains all the improved and tested code for the system.
  * 
- * @author Your Name
+ * @author Ryan Brown
  * @version 1.0
  */
 public class BetterBasket extends Basket implements Serializable, Comparator<Product> {
     private static final long serialVersionUID = 1L;
 
+    
+    
     @Override
     public boolean add(Product p1) {
         // Search existing products for matching record
@@ -30,11 +32,33 @@ public class BetterBasket extends Basket implements Serializable, Comparator<Pro
         sortProductsByPrice();
         return true;
     }
+    
+    public boolean removeProduct(String productNum) {
+        Product productToRemove = null;
+
+        // Find the specified product (case-insensitive comparison)
+        for (Product product : this) {
+            if (product.getProductNum().equalsIgnoreCase(productNum)) {
+                productToRemove = product;
+                break;
+            }
+        }
+
+        if (productToRemove != null) {
+            return this.remove(productToRemove);
+        }
+
+        return false; // Product not found
+    }
+    
+    
+    
+    
 
     @Override
     public int compare(Product p1, Product p2) {
-        // Compare products by product number
-        return p1.getProductNum().compareTo(p2.getProductNum());
+        // Compare products by price
+        return Double.compare(p1.getPrice(), p2.getPrice());
     }
 
     // Sort products by product number
@@ -46,4 +70,6 @@ public class BetterBasket extends Basket implements Serializable, Comparator<Pro
     public void sortProductsByPrice() {
         Collections.sort(this, Comparator.comparingDouble(Product::getPrice).reversed());
     }
+    
+    
 }

@@ -48,6 +48,7 @@ class Main
    */
   public void begin()
   {
+	  
     //DEBUG.set(true); /* Lots of debug info */
     MiddleFactory mlf = new LocalMiddleFactory();  // Direct access
  
@@ -71,7 +72,6 @@ class Main
 	  Container contentPane = window.getContentPane();
       contentPane.setBackground(backgroundColor);
   }
-  
 
   
   
@@ -97,7 +97,8 @@ class Main
     window.setVisible(true);         // start Screen
   }
 
-  /**
+
+/**
    * start the cashier client
    * @param mlf A factory to create objects to access the stock list
    */
